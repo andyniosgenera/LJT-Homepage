@@ -1,13 +1,16 @@
 name: Jekyll build
 
 on:
+  push:
+    branches: [master]
   # Run after bad-pr check
   workflow_run:
     workflows: ["Cleanup bad PR"]
-    branches: [main]
+    branches: [master]
     types:
       - completed
-      
+  workflow_dispatch:
+    
 permissions:
   contents: read
 
